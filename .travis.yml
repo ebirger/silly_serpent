@@ -17,3 +17,6 @@ addons:
     notification_email: eyal.birger@gmail.com
     build_command:   "make -j 4"
     branch_pattern: coverity_scan
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
