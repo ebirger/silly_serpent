@@ -2,3 +2,18 @@ language: c
 compiler:
   - gcc
 script: make
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "Dklga6+DS2NAUk6Jh79cD+LMc1lck9DQhyesmKqTHEmREf6791VS1lBDVvQgIQ+YSdRRrG3+cqdAuIvexTOyZfOdFgSM8p5KA6nn278JKDlNNLeUWxw9tRlJmMoiZRlSnUf1iMfv06qI93Vjopf1LVzYJVp+vzjg7vDMjrz+JA0wnHXW+iYFNGWf1ZxqRbUf5yrF7DMvg8jGLs/EAvjpIxya9PH0WOODElhaV+SVJcnyoBw4gyalRqUKQu8AhyBPt9RarVbz/w3UsA5TPkZUflTZBEzXzRbtGptSwE28fnsMWvusCLGF4+pSACFOW6g3eJah0tCQb7HjfEJk4fGWOQicYfAx1l6onJB8AJLKlWGrwNowhjYmA5i0sTwiEjO4snqvJmOiK1p2Rk2hbBBTAi8yCWa3KanuGuY93WBWbbrx5f3VgbYthEymCYIWeFLHVqYZlNdUuTG42L0jkgEbED6FZaOb/wFHqJiK7S89id4w34Y4KjKL9vTM5hS5wghAZSQM9ZAEQs2rOcEGbnJGAs2RW4jyeIOpxZSDO427EcXMLYGCG3OzVkIEJckd3TxkwVOVOvdBc/CryYs6b6udR4eRX0OhAzNtfrkSxfwxIFWJPP0s6o0+TaSwV83Kya3QNkUv4f+8vDPcPofqs1ApFBdx+tM1G7dfpbAAMMcm3+w="
+
+addons:
+  coverity_scan:
+    project:
+      name: "ebirger/silly_serpent"
+      description: "Build submitted via Travis CI"
+    notification_email: eyal.birger@gmail.com
+    build_command:   "make -j 4"
+    branch_pattern: coverity_scan
